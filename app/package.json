@@ -1,0 +1,30 @@
+{
+  "name": "random-express-restapi",
+  "version": "1.0.0",
+  "description": "A API written in express nodejs to return random things",
+  "main": "app.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/codebarbarian/random.git"
+  },
+  "keywords": [
+    "random",
+    "rest",
+    "api",
+    "express",
+    "nodejs"
+  ],
+  "author": "CodeBarbarian",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/codebarbarian/random/issues"
+  },
+  "homepage": "https://github.com/codebarbarian/random#readme",
+  "dependencies": {
+    "express": "^4.17.2",
+    "node-fetch": "^2.6.6"
+  }
+}

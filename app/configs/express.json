@@ -1,0 +1,4 @@
+{
+    "webport": 8080,
+    "view_engine": "ejs"
+}
