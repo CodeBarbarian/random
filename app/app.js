@@ -1,28 +1,22 @@
 /**
- * Include required libraries and modules
+ * Include Libraries
  */
 const express = require('express');
 
 /**
- * Initialize required libraries and modules
+ * Declare app = Express
  */
-var app = express();
+const app = express();
 
 /**
- * Retrieve configuration files
+ * Using the routes provided in the routes folder
  */
-var ApplicationConfig = require('./configs/config.json');
-var ExpressConfig = require('./configs/express.json');
+app.use('/', require('./routes/gameRouter'));
+app.use('/', require('./routes/homeRouter'));
 
 /**
- * Retrieve routes
+ * Start the server
  */
-require('./library/routes.js')(app)
-
-/**
- * Listen on the server
- */
-app.listen(ExpressConfig.webport, () => {
-    console.log(`Listening on ${ExpressConfig.webport}`);
+app.listen(8080, () => {
+    console.log("Server has started!");
 });
-

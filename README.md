@@ -176,7 +176,7 @@ _For more examples, please refer to the [Documentation](#)_
 
 <!-- ROADMAP -->
 ## Roadmap
-- [] MVC EVERYTHING!
+- [X] MVC EVERYTHING!
 - [] Initial Server Code
 - [] Initial Rest API
 - [] Random Module
