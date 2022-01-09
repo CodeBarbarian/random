@@ -25,6 +25,7 @@
   "homepage": "https://github.com/codebarbarian/random#readme",
   "dependencies": {
     "express": "^4.17.2",
+    "mysql": "^2.18.1",
     "node-fetch": "^2.6.6"
   }
 }
