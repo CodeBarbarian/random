@@ -1,50 +1,34 @@
-/**
- * Include Libraries
- */
+// The ability to pull params from .env file
+require('dotenv').config();
+
+// Declare and initialize the ExpressJS framework
 const express = require('express');
-
-/**
- * Include configuration files
- */
-const AppConfig = require('./config.json');
-
-/**
- * Declare app = Express
- */
 const app = express();
 
-/**
- * Express middleware.
- */
-// parses incoming requests with JSON payloads
+// Middleware allows us to access the request.body.<params>
 app.use(express.json());
-// parses incoming requests with urlencoded payloads
-// extended: true - parsing the URL-encoded data with the querystring library
-app.use(express.urlencoded({extended: true}));
 
+// Including the middleware of to always use the Validate Token
+const validateToken = require('./models/tokenModel');
+app.use(validateToken.validateToken);
+
+// Including the routers
+const homeRouter = require('./routes/homeRouter');
+
+// Use the routers
+app.use('/api/v1', homeRouter);
+
+// Retrieve the port number from the configuration file
+const PORT = process.env.PORT;
 
 /**
- * Using the routes provided in the routes folder
- */
-app.use('/', require('./routes/gameRouter'));
-app.use('/', require('./routes/homeRouter'));
-
-//const model = require('./library/model');
-
-
-/**
- * Function onStart
+ * On start function to prettyfy the code a bit
  */
 function onStart() {
-    console.log("===========================");
-    console.log("Welcome to Random Rest API!");
-    console.log("===========================");
-
-    var serverURL = (AppConfig.weburl + ":" + AppConfig.webport)
-    console.log(`Server is running! Visit ${serverURL}`);
+    console.log(`Server running on port ${PORT}`);
 }
 
 /**
  * Start the server
  */
-app.listen(AppConfig.webport, onStart);
+app.listen(PORT, onStart);

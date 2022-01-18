@@ -1,5 +1,7 @@
-const renderHomeView = (req, res, next) => {
-    res.json(["Welcome to the home page!"]);
+function renderHomeView (req, res, next) {
+   res.json({
+        "message":"welcome to home"
+    });
 }
 
 module.exports = {

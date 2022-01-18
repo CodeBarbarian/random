@@ -3,21 +3,17 @@
  */
 const express = require('express');
 const router = express.Router();
- 
+
  /**
-  * Define exported modules from controller as well as 
-  * requiring them
+  * Including the Controller
   */
-const {
-    renderHomeView, 
-} = require("../controllers/homeController");
- 
+const homeController = require('../controllers/homeController');
+
  /**
   * Defining the routes
   */
-router.get('/', renderHomeView);
-router.get('/home', renderHomeView);
-
+ // This needs to be fixed. Unable to get the homeController.renderHOmeView to work
+router.get('/home', homeController.renderHomeView);
 
  /**
   * Export the router module
